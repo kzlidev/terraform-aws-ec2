@@ -3,6 +3,7 @@ mock_provider "aws" {
   mock_data "aws_ami" {
     defaults = {
       architecture = "x86_64"
+      id           = "ami-0097cc7843f764ef5"
     }
   }
 }
