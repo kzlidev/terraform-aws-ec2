@@ -1,5 +1,11 @@
 # WARNING: Generated module tests should be considered experimental and be reviewed by the module author.
-mock_provider "aws" {}
+mock_provider "aws" {
+  mock_data "aws_ami" {
+    defaults = {
+      architecture = "x86_64"
+    }
+  }
+}
 
 run "variables_validation" {
   variables {
