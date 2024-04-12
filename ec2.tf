@@ -28,6 +28,8 @@ resource "aws_instance" "aml2" {
     }
 
     # The EC2 instance must be allocated a public DNS hostname.
+    # Terraform evaluates postcondition blocks after planning and applying changes to a managed resource, or after reading from a data source.
+    # Postcondition failures prevent changes to other resources that depend on the failing resource.
     postcondition {
       condition     = self.public_dns != ""
       error_message = "EC2 instance must be in a VPC that has public DNS hostnames enabled."
